@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="blackButton" TargetType="Button" >
+        <Setter Property="Background" Value="#FF734F0C"  ></Setter>
+        <Setter Property="Foreground" Value="White" ></Setter>
+        <Setter Property="FontSize" Value="35" ></Setter>
+        <Setter Property="FontFamily" Value="Verdana" ></Setter>
+        <Setter Property="Margin" Value="10" ></Setter>
+    </Style>
+
+    <Style x:Key="goldButton" TargetType="Button" >
+        <Setter Property="Background" Value="Black" ></Setter>
+        <Setter Property="Foreground" Value="Gold" ></Setter>
+        <Setter Property="FontSize" Value="26" ></Setter>
+        <Setter Property="FontFamily" Value="Verdana" ></Setter>
+        <Setter Property="Margin" Value="15" ></Setter>
+        <Setter Property="Height" Value="50" ></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Setter Property="Background" Value="Gold" ></Setter>
+                <Setter Property="Foreground" Value="Black" ></Setter>
+                <Setter Property="Height" Value="75" ></Setter>
+                <Setter Property="FontSize" Value="35" ></Setter>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+    <Style x:Key="SOFButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#373737" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Path x:Name="PathIcon" Width="60" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="M0 0 L32 16 L64 0 L64 16 Z "/>
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#E59400" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter TargetName="PathIcon" Property="Fill" Value="Red" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="OrangeRed" />
+                            <Setter Property="Foreground" Value="Black" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

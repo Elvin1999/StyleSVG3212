@@ -5,69 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Background="Black" Height="450" Width="800">
+        Title="MainWindow" Background="{StaticResource myblue}" Height="200" Width="400"
+        
+        WindowStartupLocation="Manual" 
+        Name="w1"
+        Opacity="0"
+        >
     <Window.Resources>
 
-        <Style x:Key="blackButton" TargetType="Button" >
-            <Setter Property="Background" Value="#FF734F0C"  ></Setter>
-            <Setter Property="Foreground" Value="White" ></Setter>
-            <Setter Property="FontSize" Value="35" ></Setter>
-            <Setter Property="FontFamily" Value="Verdana" ></Setter>
-            <Setter Property="Margin" Value="10" ></Setter>
-        </Style>
-
-        <Style x:Key="goldButton" TargetType="Button" >
-            <Setter Property="Background" Value="Black" ></Setter>
-            <Setter Property="Foreground" Value="Gold" ></Setter>
-            <Setter Property="FontSize" Value="26" ></Setter>
-            <Setter Property="FontFamily" Value="Verdana" ></Setter>
-            <Setter Property="Margin" Value="15" ></Setter>
-            <Setter Property="Height" Value="50" ></Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True" >
-                    <Setter Property="Background" Value="Gold" ></Setter>
-                    <Setter Property="Foreground" Value="Black" ></Setter>
-                    <Setter Property="Height" Value="75" ></Setter>
-                    <Setter Property="FontSize" Value="35" ></Setter>
-                </Trigger>
-            </Style.Triggers>
-            
-        </Style>
-
-
-        <Style x:Key="SOFButton" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#373737" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="SnapsToDevicePixels" Value="True" />
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                            <Grid>
-                                <Path x:Name="PathIcon" Width="60" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="M0 0 L32 16 L64 0 L64 16 Z "/>
-                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
-                            </Grid>
-                        </Border>
-
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#E59400" />
-                                <Setter Property="Foreground" Value="White" />
-                                <Setter TargetName="PathIcon" Property="Fill" Value="Red" />
-                            </Trigger>
-
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="OrangeRed" />
-                                <Setter Property="Foreground" Value="Black" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
+      
 
     </Window.Resources>
     <Canvas Width="800" >
@@ -102,10 +48,103 @@
         <Path Canvas.Top="100" Canvas.Left="100" Data="M169 123L180.226 157.549H216.553L187.164 178.902L198.389 213.451L169 192.098L139.611 213.451L150.836 178.902L121.447 157.549H157.774L169 123Z" Fill="white" Height="141" Stretch="Fill" Width="167"/>-->
 
 
-        <!--<Button Width="200" Margin="10" Style="{StaticResource SOFButton}" >Salam</Button>
+        <!--<Button Width="200" Margin="10" Background="{StaticResource myblue}" >Salam</Button>
         <Button Width="200" Margin="10"  Style="{StaticResource SOFButton}" >Salam</Button>
         <Button Style="{StaticResource goldButton}" >Salam</Button>
         <Button Style="{StaticResource goldButton}" >Salam</Button>-->
-      
+
+
+
+
+        <!--<Rectangle Name="rctback" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Margin="178,92,0,0" >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="Green"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>-->
+
+
+        <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <CheckBox Name="cbSample" Content="Hello, world?" />
+            <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="48">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="No" />
+                        <Setter Property="Foreground" Value="Red" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="Yes!" />
+                                <Setter Property="Foreground" Value="Green" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>-->
+
+        <!--<TextBlock Name="lblStyled" Text="Hello, styled world!" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="Black"
+                   >
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="FontSize" To="28" />
+                                        <ColorAnimation Duration="0:0:0.800" Storyboard.TargetProperty="Foreground" To="SpringGreen" ></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="FontSize" To="18" />
+                                        <ColorAnimation Duration="0:0:0.800" Storyboard.TargetProperty="Foreground" To="Black" ></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>-->
+
+        
+        
+        
     </Canvas>
+
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="(Window.Opacity)"
+                                 From="0.0" To="1.0" Duration="0:0:2"
+                                 AutoReverse="False"/>
+                    <!--<DoubleAnimation Storyboard.TargetProperty="(Window.Height)"
+                                 From="200" To="450" Duration="0:0:2"
+                                 AutoReverse="False"/>
+                    <DoubleAnimation Storyboard.TargetProperty="(Window.Width)"
+                                 From="400" To="800" Duration="0:0:2"
+                                 AutoReverse="False"/>-->
+                    <!--<DoubleAnimation Storyboard.TargetName="w1" Storyboard.TargetProperty="(Window.Left)" From="-500" To="600" AutoReverse="False" BeginTime="0:0:0" Duration="0:0:0.500"/>
+                    <DoubleAnimation Storyboard.TargetName="w1" Storyboard.TargetProperty="(Window.Left)" From="600" To="300" AutoReverse="False" BeginTime="0:0:0.500" Duration="0:0:0.600"/>-->
+                    
+                    
+                    
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
 </Window>
